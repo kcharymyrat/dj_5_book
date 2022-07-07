@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock title %}
+
+{% block content %}
+    <h2>My previous books</h2>
+    <div>
+        <form action="" method="get">
+            <label for="q_book_id">Search by title: </label>
+            <input type="text" name="q_book" id="q_book_id">
+            <button type="submit">Search</button>
+        </form>
+    </div>
+
+    {% for prev_book in prev_books  %}
+        <hr>  
+        <div>
+            {% include 'book/details_snippet.html' with book=prev_book %}
+        </div>      
+    {% endfor %}
+    <hr>
+    <div>
+        <h3>Comments:</h3>
+        {% for comment in comments %}
+            <p>{{comment}}</p>
+        {% endfor %}
+    </div>
+
+    <div>
+        {% include "form_post.html" with url="" form=comment_form %}
+    </div>
+{% endblock content %}

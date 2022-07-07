@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock title %}
+
+{% block content %}
+     {% if request.user %}
+          <p><a href="{% url 'book:add_book' %}">Add a new book</a></p>
+     {% endif %}
+     <main>
+     <h2>Welcome to {{book.title}}'s website page</h2>
+     {% include "book/details_snippet.html" with book=book %}
+     </main>
+
+     <div>
+     <p>You can check the summary of my previous work on this <a href="{% url 'book:prev_books' %}">link</a></p>
+     </div>
+{% endblock content %}

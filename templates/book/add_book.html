@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock title %}
+
+{% block content %}
+    <h2>Add a new book</h2>
+   
+    <div>
+        {% include "form_post.html" with url="" form=form %}
+    </div>
+{% endblock content %}
